@@ -5,7 +5,11 @@ templates['display-template'] = template(function (Handlebars,depth0,helpers,par
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
-
+    /* input custom data labels here */
+    var dataLabel1 = "Data 1: "
+    var dataLabel2 = "Data 2: "
+    var dataLabel3 = "Data 3: "
+    
   buffer += "<div id=\"detailcon\">\n	<div id=\"prevbtn\"><a href=\"javascript:photoGrid.prevPerson()\">«</a></div>\n	<div id=\"closebtn\">X</div>\n	<div id=\"photocon\"><img width=\"115\" height=\"135\" src=\"imgs/";
   if (helper = helpers.photo) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.photo); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
@@ -14,15 +18,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</div>\n		<div id=\"data1\" class=\"dataDisp\"><p>Data 1: ";
+    + "</div>\n		<div id=\"data1\" class=\"dataDisp\"><p>" + dataLabel1;
   if (helper = helpers.data1) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.data1); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</p></div>\n		<div id=\"data2\" class=\"dataDisp\"><p>Data 2: ";
+    + "</p></div>\n		<div id=\"data2\" class=\"dataDisp\"><p>" + dataLabel2;
   if (helper = helpers.data2) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.data2); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</p></div>\n		<div id=\"data3\" class=\"dataDisp\"><p>Data 3: ";
+    + "</p></div>\n		<div id=\"data3\" class=\"dataDisp\"><p>" + dataLabel3;
   if (helper = helpers.data3) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.data3); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
