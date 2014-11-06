@@ -52,7 +52,7 @@ var profilerGrid = {
 	},
 
 	showDetail: function(which) {
-
+		var that = this;
 		this.current = which;
 
 		this.$detail.show();
@@ -74,8 +74,8 @@ var profilerGrid = {
 
 		//CLOSE BUTTON
 		$("#closebtn").click(function() {
-			this.$detail.hide();
-			this.$detail.animate({ opacity: '0' }, 500);
+			that.$detail.hide();
+			that.$detail.animate({ opacity: '0' }, 500);
 			$("#detail #vid").empty();
 		});
 
