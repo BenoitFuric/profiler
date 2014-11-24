@@ -1,37 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>The Profiler</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet"  href="css/profiler.css" />
+    <title>The Profiler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/profiler.css" />
 </head>
+
 <body>
+    <div id="container"></div>
+    <div id="detail"></div>
 
-	<div id="wrapper">
-		<div id="container"></div>
-		<div id="detail"></div>
-	</div>
+    <div style="clear:both"></div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="js/compiled/th-template.runtime.js"></script>
+    <script type="text/javascript" src="js/compiled/display-template.runtime.js"></script>
+    <script type="text/javascript" src="js/miso.ds.deps.min.0.4.1.js"></script>
+    <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/profiler.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        profilerGrid.init({
+            googleKey: "0ArY8qeOOJQX3dHpXNEw5MlBzQV9WZlNuNEJuWUFJeGc"
+        });
 
-	<div style="clear:both"></div>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script type="text/javascript" src="js/handlebars-v2.0.0.js"></script>
-	<script type="text/javascript" src="js/compiled/th-template.runtime.js"></script>
-	<script type="text/javascript" src="js/compiled/display-template.runtime.js"></script>
-	<script type="text/javascript" src="js/miso.ds.deps.min.0.4.1.js"></script>
-	<script type="text/javascript" src="js/profiler.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			profilerGrid.init({
-				googleKey: "0AlJvpLJJ7V1MdFd6T05pTU15cWlzMERSUWxhZlJXTFE"
-			});
-		});
-	</script>
+        var $container = $('#container');
+
+        $("#detail").click(function(e) {
+            if (e.target == this) {
+                $(this).fadeOut();
+            }
+        });
+
+        $container.masonry({
+            columnWidth: 200,
+            itemSelector: '.masonry'
+        });
+
+        $(this).keydown(function(e) {
+            switch (e.which) {
+                case 37: // left
+                    profilerGrid.prevPerson();
+                    break;
+
+                case 27: // escape
+                    $('#detail').fadeOut();
+                    break;
+
+                case 39: // right
+                    profilerGrid.nextPerson();
+                    break;
+
+                default:
+                    return; // exit this handler for other keys
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
+    });
+    </script>
 
 
 
 </body>
+
 </html>
 
 </body>
+
 </html>
